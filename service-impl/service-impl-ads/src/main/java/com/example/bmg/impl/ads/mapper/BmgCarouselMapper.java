@@ -1,4 +1,4 @@
-package com.example.bmg.api.ads.mapper;
+package com.example.bmg.impl.ads.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.bmg.entity.BmgCarousel;
@@ -11,6 +11,6 @@ import com.example.bmg.entity.BmgCarousel;
  * @author CW
  * @since 2025-10-04
  */
-public interface BmgCarouselMapper extends BaseMapper<BmgCarousel> {
+public interface BmgCarouselMapper extends BaseMapper<BmgCarousel>  {
 
 }

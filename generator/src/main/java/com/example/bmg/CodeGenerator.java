@@ -25,6 +25,7 @@ public class CodeGenerator {
                         .xml("mapper.xml")
                 )
                 .strategyConfig(builder -> builder
+                        .addTablePrefix("bmg_") // 设置过滤表前缀
                         .entityBuilder()
                         .enableLombok()
                 )
