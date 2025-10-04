@@ -2,9 +2,9 @@ package com.example.bmg.impl.ads.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.bmg.ads.mapper.BmgCarouselMapper;
 import com.example.bmg.api.ads.service.IBmgCarouselService;
 import com.example.bmg.entity.BmgCarousel;
+import com.example.bmg.impl.ads.mapper.BmgCarouselMapper;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +27,7 @@ public class BmgCarouselServiceImpl extends ServiceImpl<BmgCarouselMapper, BmgCa
 
     @Override
     public List<BmgCarousel> getCarouselList() {
+
         return bmgCarouselMapper.selectList(new QueryWrapper<BmgCarousel>().eq("is_deleted", 0));
     }
 }
