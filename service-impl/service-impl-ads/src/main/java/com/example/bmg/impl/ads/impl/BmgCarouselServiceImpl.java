@@ -10,6 +10,7 @@ import com.example.bmg.utils.DataResults;
 import com.example.bmg.utils.PageUtils;
 import com.example.bmg.utils.ResultCode;
 import jakarta.annotation.Resource;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -23,6 +24,7 @@ import java.util.List;
  * @since 2025-10-04
  */
 @RestController
+@RequestMapping("ads")
 public class BmgCarouselServiceImpl extends ServiceImpl<BmgCarouselMapper, BmgCarousel> implements IBmgCarouselService {
 
 

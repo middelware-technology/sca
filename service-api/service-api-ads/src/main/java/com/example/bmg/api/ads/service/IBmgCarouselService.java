@@ -4,7 +4,6 @@ import com.example.bmg.entity.BmgCarousel;
 import com.example.bmg.utils.DataResults;
 import com.example.bmg.utils.PageUtils;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +18,6 @@ import java.util.List;
  * @since 2025-10-04
  */
 @Tag(name = "轮播图服务",description = "轮播图相关API操作")
-@RequestMapping("ads")
 public interface IBmgCarouselService  {
 
     @Operation(summary = "查询所有轮播图")
