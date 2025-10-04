@@ -3,6 +3,7 @@ package com.example.bmg.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.example.beans.commons.PageBean;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,7 +23,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @TableName("bmg_carousel")
-public class BmgCarousel implements Serializable {
+public class BmgCarousel extends PageBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

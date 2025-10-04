@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>beans-ads</module>
+        <module>beans-commons</module>
     </modules>
 
     <properties>
