@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,14 +27,15 @@ public class AdsController {
    CacheData cacheData;
 
 
-    @Operation(summary = "查询所有轮播图")
+    @Operation(summary = "查询轮播图")
     @ApiResponse(responseCode = "200", description = "轮播图列表")
-    @GetMapping("getCarouselList")
-    public DataResults<List<BmgCarousel>>  getCarouselList(){
+    @GetMapping("getCarouselList/{id}")
+    public DataResults<BmgCarousel>  getCarouselList(@PathVariable(name = "id") Integer id){
 
-        log.info("查询轮播图列表");
+        log.info("进入getCarouselList视图");
+        cacheData.getCarouselList(); // 远程获取广告列表
 
-        return DataResults.success(cacheData.getCarouselList());
+        return cacheData.getById(id);
 
     }
 }
