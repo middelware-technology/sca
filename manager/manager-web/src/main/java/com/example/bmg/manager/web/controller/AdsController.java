@@ -2,6 +2,7 @@ package com.example.bmg.manager.web.controller;
 
 
 import com.example.bmg.entity.BmgCarousel;
+import com.example.bmg.manager.web.cache.CacheData;
 import com.example.bmg.manager.web.client.AdsClient;
 import com.example.bmg.utils.DataResults;
 import io.swagger.v3.oas.annotations.Operation;
@@ -21,8 +22,8 @@ import java.util.List;
 @RequestMapping("ads")
 public class AdsController {
 
-    @Resource
-    AdsClient adsClient;
+   @Resource
+   CacheData cacheData;
 
 
     @Operation(summary = "查询所有轮播图")
@@ -30,9 +31,9 @@ public class AdsController {
     @GetMapping("getCarouselList")
     public DataResults<List<BmgCarousel>>  getCarouselList(){
 
-        // 远程调用Carouse服务获取轮播图列表
-        DataResults<List<BmgCarousel>> carouselList = adsClient.getCarouselList();
-        return carouselList;
+        log.info("查询轮播图列表");
+
+        return DataResults.success(cacheData.getCarouselList());
 
     }
 }

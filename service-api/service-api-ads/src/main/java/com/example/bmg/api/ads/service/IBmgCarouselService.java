@@ -22,7 +22,7 @@ public interface IBmgCarouselService  {
 
     @Operation(summary = "查询所有轮播图")
     @GetMapping("/getCarouselList")
-    DataResults<List<BmgCarousel>>  getCarouselList();
+    List<BmgCarousel>  getCarouselList();
 
     @Operation(summary = "分页查询轮播图")
     @PostMapping("/page")

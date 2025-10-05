@@ -10,6 +10,7 @@ import com.example.bmg.utils.DataResults;
 import com.example.bmg.utils.PageUtils;
 import com.example.bmg.utils.ResultCode;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,8 +24,8 @@ import java.util.List;
  * @author CW
  * @since 2025-10-04
  */
+@Slf4j
 @RestController
-@RequestMapping("ads")
 public class BmgCarouselServiceImpl extends ServiceImpl<BmgCarouselMapper, BmgCarousel> implements IBmgCarouselService {
 
 
@@ -32,9 +33,10 @@ public class BmgCarouselServiceImpl extends ServiceImpl<BmgCarouselMapper, BmgCa
     BmgCarouselMapper bmgCarouselMapper;
 
     @Override
-    public DataResults<List<BmgCarousel>>  getCarouselList() {
+    public List<BmgCarousel>  getCarouselList() {
+        log.info("查询轮播图列表");
 
-        return DataResults.success(ResultCode.CART_200,bmgCarouselMapper.selectList(new QueryWrapper<BmgCarousel>().eq("is_deleted", 0))) ;
+        return bmgCarouselMapper.selectList(new QueryWrapper<BmgCarousel>().eq("is_deleted", 0)) ;
     }
 
     @Override
