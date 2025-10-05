@@ -82,8 +82,8 @@ public class RedisConfig {
         RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
                 .entryTtl(Duration.ofHours(1)) // 设置缓存有效期1小时
                 .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer))
-                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(jackson2JsonRedisSerializer))
-                .disableCachingNullValues(); // 不缓存空值
+                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(jackson2JsonRedisSerializer));
+//                .disableCachingNullValues(); // 不缓存空值
 
         return RedisCacheManager.builder(factory)
                 .cacheDefaults(config)
@@ -111,7 +111,7 @@ public class CacheData {
 
     @Resource
     AdsClient adsClient;
-    
+
     // Cacheable是key的名称，#root.methodName是方法名
     @Cacheable(key = "#root.methodName")
     public List<BmgCarousel> getCarouselList() {
@@ -120,6 +120,13 @@ public class CacheData {
         log.info("获取到 {} 条轮播图数据", result != null ? result.size() : 0);
         return result;
     }
-}
 
+    @Cacheable(key = "#root.methodName+'_'+#id")
+    public DataResults<BmgCarousel> getById(Integer id){
+        log.info("从数据库中根据ID={},获取轮播图数据 - 缓存未命中",id);
+        DataResults<BmgCarousel> result = adsClient.getById(id);
+        log.info("获取到轮播图数据:{}",result);
+        return result;
+    }
+}
 ```
