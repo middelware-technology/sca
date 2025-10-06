@@ -1,3 +1,6 @@
+# SpringCache使用位置
+使用在web层，缓存调用服务层。
+
 # 1. 导入坐标
 ```
         <dependency>

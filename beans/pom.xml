@@ -14,6 +14,7 @@
     <modules>
         <module>beans-ads</module>
         <module>beans-commons</module>
+        <module>beans-goods</module>
     </modules>
 
     <properties>

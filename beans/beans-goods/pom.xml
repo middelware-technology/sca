@@ -5,16 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.example</groupId>
-        <artifactId>sca</artifactId>
+        <artifactId>beans</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>service-impl</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>service-impl-ads</module>
-        <module>service-impl-goods</module>
-    </modules>
+    <artifactId>beans-goods</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -23,18 +19,11 @@
     </properties>
 
     <dependencies>
-
-
         <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-json</artifactId>
+            <groupId>com.example</groupId>
+            <artifactId>beans-commons</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
     </dependencies>
 
 </project>
